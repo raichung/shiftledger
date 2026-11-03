@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: shiftledger-db
+    environment:
+      POSTGRES_DB: shiftledger
+      POSTGRES_USER: shiftledger
+      POSTGRES_PASSWORD: shiftledger
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
