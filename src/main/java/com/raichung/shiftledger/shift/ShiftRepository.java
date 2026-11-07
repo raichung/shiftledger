@@ -17,4 +17,13 @@ public interface ShiftRepository extends JpaRepository<Shift, Long> {
               and s.endTime > :startTime
             """)
     long countOverlapping(Long userId, Instant startTime, Instant endTime);
+
+    //all shifts for this user that start inside a time window
+    @Query("""
+            select s from Shift s
+            where s.job.userId = :userId
+              and s.startTime >= :from
+              and s.startTime < :to
+            """)
+    List<Shift> findAllStartingBetween(Long userId, Instant from, Instant to);
 }

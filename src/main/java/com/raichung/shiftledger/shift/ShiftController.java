@@ -17,7 +17,7 @@ public class ShiftController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public ShiftResponse create(@Valid @RequestBody CreateShiftRequest request) {
+    public CreateShiftResponse create(@Valid @RequestBody CreateShiftRequest request) {
         return shiftService.create(request);
     }
 

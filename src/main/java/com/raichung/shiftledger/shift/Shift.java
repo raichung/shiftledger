@@ -2,6 +2,8 @@ package com.raichung.shiftledger.shift;
 
 import com.raichung.shiftledger.job.Job;
 import jakarta.persistence.*;
+
+import java.time.Duration;
 import java.time.Instant;
 
 @Entity
@@ -37,4 +39,9 @@ public class Shift {
     public Instant getEndTime() { return endTime; }
     public int getBreakMinutes() { return breakMinutes; }
     public String getNote() { return note; }
+
+    // Time actually worked: the whole shift minus the unpaid break
+    public long workedMinutes() {
+        return Duration.between(startTime, endTime).toMinutes() - breakMinutes;
+    }
 }
