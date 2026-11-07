@@ -1,18 +1,17 @@
 package com.raichung.shiftledger.shift;
 
+import com.raichung.shiftledger.common.AppTime;
+import java.math.BigDecimal;
 import java.time.OffsetDateTime;
-import java.time.ZoneId;
 
 public record ShiftResponse(Long id, Long jobId, String employerName,
                             OffsetDateTime startTime, OffsetDateTime endTime,
-                            int breakMinutes, String note) {
+                            int breakMinutes, String note, BigDecimal pay) {
 
-    private static final ZoneId ADELAIDE = ZoneId.of("Australia/Adelaide");
-
-    static ShiftResponse from(Shift s) {
+    static ShiftResponse from(Shift s, BigDecimal pay) {
         return new ShiftResponse(s.getId(), s.getJob().getId(), s.getJob().getEmployerName(),
-                s.getStartTime().atZone(ADELAIDE).toOffsetDateTime(),
-                s.getEndTime().atZone(ADELAIDE).toOffsetDateTime(),
-                s.getBreakMinutes(), s.getNote());
+                s.getStartTime().atZone(AppTime.ZONE).toOffsetDateTime(),
+                s.getEndTime().atZone(AppTime.ZONE).toOffsetDateTime(),
+                s.getBreakMinutes(), s.getNote(), pay);
     }
 }
