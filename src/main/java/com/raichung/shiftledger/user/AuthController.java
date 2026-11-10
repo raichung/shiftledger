@@ -23,6 +23,11 @@ public class AuthController {
         return userService.signUp(request);
     }
 
+    @PostMapping("/login")
+    public TokenResponse login(@Valid @RequestBody LoginRequest request) {
+        return userService.login(request);
+    }
+
     @GetMapping("/me")
     public UserResponse me() {
         return userService.me(currentUser.id());
