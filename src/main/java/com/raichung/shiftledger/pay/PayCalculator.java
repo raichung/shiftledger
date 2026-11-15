@@ -44,7 +44,7 @@ public class PayCalculator {
             return job.getPublicHolidayRate();
         }
         return switch (date.getDayOfWeek()) {
-            case SATURDAY -> job.getSaturdayRate();
+            case SATURDAY -> job.getWeekdayRate();
             case SUNDAY -> job.getSundayRate();
             default -> job.getWeekdayRate();
         };
