@@ -2,6 +2,9 @@
 
 ![CI](https://github.com/raichung/shiftledger/actions/workflows/ci.yml/badge.svg)
 
+**Live demo:** https://shiftledger-65u6.onrender.com/swagger-ui/index.html
+(free hosting, so the first request after a quiet spell takes a minute or two to wake up)
+
 I work casual shifts while studying in Adelaide on a student visa. Working out pay across
 weekend and public holiday rates, and staying under the 48-hour fortnight limit, gets fiddly
 fast. ShiftLedger is a REST API that does both.
