@@ -10,7 +10,7 @@ weekend and public holiday rates, and staying under the 48-hour fortnight limit,
 fast. ShiftLedger is a REST API that does both.
 
 **Stack:** Java 21, Spring Boot 4, Spring Security (JWT), PostgreSQL 17, Flyway, JPA/Hibernate,
-JUnit 5, Testcontainers, Docker Compose, GitHub Actions, OpenAPI/Swagger
+JUnit 5, Testcontainers, Docker, GitHub Actions, OpenAPI/Swagger, deployed on Render with Neon Postgres
 
 ![Swagger UI](docs/swagger.png)
 
